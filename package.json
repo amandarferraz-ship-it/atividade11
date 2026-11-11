@@ -1,0 +1,19 @@
+{
+  "name": "api-produtos-fornecedores",
+  "version": "1.0.0",
+  "description": "API REST de produtos e fornecedores com Node.js, Express e MySQL",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

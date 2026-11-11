@@ -1,0 +1,161 @@
+{
+  "info": {
+    "_postman_id": "8a9fbc44-8bd2-4c14-99a1-111111111111",
+    "name": "API Produtos e Fornecedores",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Fornecedores",
+      "item": [
+        {
+          "name": "Cadastrar fornecedor",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\": \"Fornecedor Delta\", \"cnpj\": \"45678901000123\"}"
+            },
+            "url": "{{baseUrl}}/fornecedor"
+          }
+        },
+        {
+          "name": "Listar fornecedores",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/fornecedor"
+          }
+        },
+        {
+          "name": "Buscar fornecedor por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/fornecedor/1"
+          }
+        },
+        {
+          "name": "Atualizar fornecedor",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"nome\": \"Fornecedor Alfa Atualizado\"}"
+            },
+            "url": "{{baseUrl}}/fornecedor/1"
+          }
+        },
+        {
+          "name": "Excluir fornecedor",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/fornecedor/3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "item": [
+        {
+          "name": "Cadastrar produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"descricao\": \"Rolamento industrial\", \"preco\": 35.9, \"peso\": 0.45}"
+            },
+            "url": "{{baseUrl}}/produto"
+          }
+        },
+        {
+          "name": "Listar produtos",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/produto"
+          }
+        },
+        {
+          "name": "Buscar produto por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/produto/1"
+          }
+        },
+        {
+          "name": "Atualizar produto",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"preco\": 39.9}"
+            },
+            "url": "{{baseUrl}}/produto/1"
+          }
+        },
+        {
+          "name": "Excluir produto",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/produto/5"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Relacionamento",
+      "item": [
+        {
+          "name": "Vincular produto 1 ao fornecedor 1",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/produto/1/fornecedor/1"
+          }
+        },
+        {
+          "name": "Remover vínculo do produto 1",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/produto/1/remover-fornecedor"
+          }
+        },
+        {
+          "name": "Testar fornecedor inexistente",
+          "request": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/produto/1/fornecedor/99999"
+          }
+        }
+      ]
+    }
+  ]
+}
